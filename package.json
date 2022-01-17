@@ -1,0 +1,16 @@
+{
+  "name": "correios-cep-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/index.ts",
+  "keywords": [],
+  "author": "Magno Fernando Brixner Biét <magno.biet@gmail.com> (https://magnobiet.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "xml-parse": "^0.4.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^1.12.1"
+  }
+}

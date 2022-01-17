@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "name": "correios-cep-api",
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api"
+    },
+    {
+      "source": "/api",
+      "destination": "/api/cep"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://correios.magnobiet.com"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "OPTIONS,GET"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "s-max-age=1, stale-while-revalidate=59"
+        },
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        }
+      ]
+    }
+  ]
+}
