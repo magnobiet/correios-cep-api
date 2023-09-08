@@ -8,11 +8,12 @@ export default async function CEPController(
   const { cep } = request.query;
 
   if (!cep || cep.length !== 8) {
-    response.statusCode = 204;
-    response.send("CEP not found");
+    response.statusCode = 404;
+
+    return response.send({ error: "Invalid or not found CEP" });
   }
 
   const service = new CEPService();
 
-  response.json(await service.get(cep as string));
+  return response.json(await service.get(cep as string));
 }
