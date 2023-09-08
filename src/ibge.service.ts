@@ -1,14 +1,19 @@
 import axios, { AxiosInstance } from "axios";
+import crypto from "node:crypto";
+import https from "node:https";
 import { Municipio } from "./ibge-response.interface";
 
 export default class IBGEService {
   public http: AxiosInstance = axios.create({
     baseURL: "https://servicodados.ibge.gov.br/api/v1",
+    httpsAgent: new https.Agent({
+      secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+    }),
   });
 
   private async getCitiesFromState(state: string) {
     const { data } = await this.http.get<Array<Municipio>>(
-      `localidades/estados/${state}/municipios`
+      `/localidades/estados/${state}/municipios`
     );
 
     return data;

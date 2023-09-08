@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import * as xml from "xml-parse";
-import CEPResponse from "./cep-response.interface";
+import { CEPResponse } from "./cep-response.interface";
 
 export default class CEPService {
   public http: AxiosInstance = axios.create({
