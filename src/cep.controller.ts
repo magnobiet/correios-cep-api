@@ -23,6 +23,8 @@ export default async function CEPController(
     cepFound.city as string
   );
 
+  response.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
+
   return response.json({
     ...cepFound,
     state,
