@@ -31,7 +31,7 @@ export default async function CEPController(
     return notFound(response);
   }
 
-  response.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
+  response.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate=59");
 
   return response.json({
     ...cepFound,
