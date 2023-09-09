@@ -14,6 +14,8 @@ export default async function CEPController(
 ): Promise<VercelResponse> {
   const cep = (request.query.cep as string).replace("-", "");
 
+  console.info("cep", cep);
+
   if (!cep || cep.length !== 8) {
     return notFound(response);
   }
@@ -22,10 +24,16 @@ export default async function CEPController(
   const ibgeService = new IBGEService();
 
   const cepFound = await cepService.get(cep as string);
+
+  console.info("cepFound", cepFound);
+
   const [state, city] = await ibgeService.getCity(
     cepFound.state as string,
     cepFound.city as string
   );
+
+  console.info("state", state);
+  console.info("city", city);
 
   if (state.id === 0 && city.id === 0) {
     return notFound(response);
