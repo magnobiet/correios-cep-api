@@ -11,7 +11,7 @@
     "xml-parse": "^0.4.0"
   },
   "devDependencies": {
-    "@vercel/node": "^3.0.4",
-    "vercel": "^32.2.0"
+    "@vercel/node": "^3.0.10",
+    "vercel": "^32.5.4"
   }
 }
